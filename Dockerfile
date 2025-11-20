@@ -28,8 +28,11 @@ COPY . .
 # Cài đặt các dependency của Laravel
 RUN composer install --no-dev --optimize-autoloader
 
-# Tạo key mới và cấp quyền cho storage
-RUN php artisan key:generate
+# Thêm lệnh tối ưu hóa cấu hình
+RUN php artisan config:cache
+RUN php artisan view:cache
+
+# Cấp quyền cho storage (Giữ nguyên lệnh này)
 RUN chown -R www-data:www-data /var/www/html/storage
 RUN chmod -R 775 /var/www/html/storage
 
