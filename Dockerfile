@@ -14,6 +14,9 @@ RUN composer install --no-dev --optimize-autoloader
 RUN php artisan config:cache
 RUN php artisan view:cache
 
+# THÊM LỆNH XÓA CACHE ROUTE NÀY VÀO ĐÂY!
+RUN php artisan route:clear
+
 # CHẠY MIGRATION LẦN ĐẦU (Vì Render Free Tier không có Shell)
 # --force để buộc chạy trong môi trường Production
 RUN php artisan migrate --force
