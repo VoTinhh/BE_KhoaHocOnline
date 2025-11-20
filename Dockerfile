@@ -10,15 +10,15 @@ COPY . .
 # Cài đặt các dependency của Laravel
 RUN composer install --no-dev --optimize-autoloader
 
-# Thêm lệnh tối ưu hóa cấu hình
-RUN php artisan config:cache
-RUN php artisan view:cache
-
-# THÊM LỆNH XÓA CACHE ROUTE NÀY VÀO ĐÂY!
+# THÊM LỆNH XÓA CACHE CẤU HÌNH VÀO ĐÂY!
+RUN php artisan config:clear
 RUN php artisan route:clear
 
-# CHẠY MIGRATION LẦN ĐẦU (Vì Render Free Tier không có Shell)
-# --force để buộc chạy trong môi trường Production
+# Thêm lệnh tối ưu hóa cấu hình
+RUN php artisan config:cache
+RUN php artisan route:cache
+
+# CHẠY MIGRATION LẦN ĐẦU
 RUN php artisan migrate --force
 
 # Cấp quyền cho storage
