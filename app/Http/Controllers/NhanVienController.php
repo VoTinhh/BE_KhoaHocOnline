@@ -126,6 +126,7 @@ class NhanVienController extends Controller
             'message' => 'Đã xoá thành công'
         ]);
     }
+
     public function login(Request $request)
     {
 

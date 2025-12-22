@@ -720,6 +720,8 @@ class BaiHocSeeding extends Seeder
                 'tinh_trang'    => '1',
                 'created_at' => Carbon::createFromTimestamp(rand($startDate->timestamp, $endDate->timestamp)),
             ],
+
+            // Khóa học ..: ...
         ]);
 
     }
