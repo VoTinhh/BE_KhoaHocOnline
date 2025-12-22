@@ -7,6 +7,7 @@ Route::get('/', function () {
     $data = [
         'name' => 'Tĩnh'
     ];
+    //return view('welcome');
     return view('demo', compact('data'));
 });
 
