@@ -77,7 +77,7 @@
             <p>Xin chào <strong>{{ $data['ho_va_ten'] }}</strong>,</p>
             <p>Bạn đã yêu cầu đặt lại mật khẩu. Vui lòng nhấn vào nút bên dưới để thực hiện:</p>
             <a href="{{ $data['link'] }}">Đặt lại mật khẩu</a>
-            <p>Nếu bạn không yêu cầu điều này, hãy bỏ qua email này hoặc liên hệ với chúng tôi để được hỗ trợ.</p>
+            <p>Nếu bạn không yêu cầu điều này, hãy bỏ qua email này hoặc liên hệ với chúng tôi để được hỗ trợ thêm.</p>
         </div>
     </div>
 </body>
