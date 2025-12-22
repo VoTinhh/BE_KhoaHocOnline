@@ -20,6 +20,7 @@ class MasterMail extends Mailable
         $this->tieu_de    =   $tieu_de;
         $this->giao_dien  =   $giao_dien;
         $this->du_lieu    =   $du_lieu;
+        //dd($du_lieu);
     }
     public function build()
     {
