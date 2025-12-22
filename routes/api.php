@@ -14,7 +14,7 @@ use App\Http\Controllers\TaiChinhController;
 use App\Http\Controllers\TracNghiemController;
 use App\Models\ChiTietKhoaHoc;
 use App\Models\LoaiKhoaHoc;
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/auto-giao-dich', [TaiChinhController::class, 'autoGiaoDich']);
@@ -128,3 +128,4 @@ Route::post('/trac-nghiem/nop-bai', [TracNghiemController::class, 'nopBai'])->mi
 Route::post('/admin/chi-tiet-phan-quyen/create', [ChiTietPhanQuyenController::class, 'store'])->middleware("nhanVienMiddle");
 Route::post('/admin/chi-tiet-phan-quyen/data', [ChiTietPhanQuyenController::class, 'getData'])->middleware("nhanVienMiddle");
 Route::post('/admin/chi-tiet-phan-quyen/delete', [ChiTietPhanQuyenController::class, 'xoaChiTietQuyen'])->middleware("nhanVienMiddle");
+
