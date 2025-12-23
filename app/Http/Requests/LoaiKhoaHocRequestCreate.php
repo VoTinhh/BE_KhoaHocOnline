@@ -10,6 +10,7 @@ class LoaiKhoaHocRequestCreate extends FormRequest
     {
         return true;
     }
+
     public function rules(): array
     {
         return [
@@ -22,6 +23,7 @@ class LoaiKhoaHocRequestCreate extends FormRequest
             'gia_goc'          =>'required|numeric|min:1',
         ];
     }
+
     public function messages()
     {
         return [
