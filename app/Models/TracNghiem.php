@@ -17,4 +17,5 @@ class TracNghiem extends Model
         'dap_an_dung',
         'tinh_trang',
     ];
+
 }
