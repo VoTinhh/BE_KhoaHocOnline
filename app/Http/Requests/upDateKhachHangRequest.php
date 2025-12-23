@@ -6,12 +6,10 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class upDateKhachHangRequest extends FormRequest
 {
-
     public function authorize(): bool
     {
         return true;
     }
-
 
     public function rules(): array
     {
@@ -23,6 +21,7 @@ class upDateKhachHangRequest extends FormRequest
            'ngay_sinh'     => 'required|date',
         ];
     }
+    
     public function messages(): array
     {
         return [
