@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class BaiHoc extends Model
 {
     protected $table = 'bai_hocs';
+
     protected $fillable = [
         'id_khoa_hoc',
         'tieu_de',
