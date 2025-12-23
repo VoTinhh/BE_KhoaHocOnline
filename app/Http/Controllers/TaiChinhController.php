@@ -11,8 +11,9 @@ use Illuminate\Support\Facades\Auth;
 
 class TaiChinhController extends Controller
 {
+    //Nạp tiền
     public function napTien(TaiChinhRequestCreate $request ){
-        $id_chuc_nang = 35; //Nạp tiền
+        $id_chuc_nang = 35;
         $id_quyen     = Auth::guard('sanctum')->user()->id_quyen;
         $check        = ChiTietPhanQuyen::where('id_quyen', $id_quyen)->where('id_chuc_nang', $id_chuc_nang)->first();
         if (!$check) {
@@ -38,9 +39,10 @@ class TaiChinhController extends Controller
             'message'   =>'Đã nạp tiền ' . number_format($request->so_tien_can_nap) . ' thành công'
         ]);
     }
+    //Lấy dữ liệu tài chính
     public function getData()
     {
-        $id_chuc_nang = 36; //Lấy dữ liệu tài chính
+        $id_chuc_nang = 36;
         $id_quyen     = Auth::guard('sanctum')->user()->id_quyen;
         $check        = ChiTietPhanQuyen::where('id_quyen', $id_quyen)->where('id_chuc_nang', $id_chuc_nang)->first();
         if (!$check) {
@@ -57,9 +59,10 @@ class TaiChinhController extends Controller
             'data'  =>$data
         ]);
     }
+    //Lấy dữ liệu tài chính của 1 người
     public function getDataOnePerson(Request $request)
     {
-        $id_chuc_nang = 37; //Lấy dữ liệu tài chính của 1 người
+        $id_chuc_nang = 37;
         $id_quyen     = Auth::guard('sanctum')->user()->id_quyen;
         $check        = ChiTietPhanQuyen::where('id_quyen', $id_quyen)->where('id_chuc_nang', $id_chuc_nang)->first();
         if (!$check) {
