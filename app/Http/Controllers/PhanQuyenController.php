@@ -10,9 +10,10 @@ use Illuminate\Support\Facades\Auth;
 
 class PhanQuyenController extends Controller
 {
+    //Lấy danh sách quyền
     public function getData()
     {
-        $id_chuc_nang = 31; //Lấy danh sách quyền
+        $id_chuc_nang = 31;
         $id_quyen     = Auth::guard('sanctum')->user()->id_quyen;
         $check        = ChiTietPhanQuyen::where('id_quyen', $id_quyen)->where('id_chuc_nang', $id_chuc_nang)->first();
         if (!$check) {
@@ -26,10 +27,10 @@ class PhanQuyenController extends Controller
             'data' => $data
         ]);
     }
-
+    //Thêm mới quyền
     public function themQuyen(Request $request)
     {
-        $id_chuc_nang = 32; //Thêm mới quyền
+        $id_chuc_nang = 32;
         $id_quyen     = Auth::guard('sanctum')->user()->id_quyen;
         $check        = ChiTietPhanQuyen::where('id_quyen', $id_quyen)->where('id_chuc_nang', $id_chuc_nang)->first();
         if (!$check) {
@@ -48,7 +49,7 @@ class PhanQuyenController extends Controller
             'message'   => 'Thêm mới tên quyền thành công!'
         ]);
     }
-
+    //Xóa quyền
     public function xoaQuyen(Request $request)
     {
         $id_chuc_nang = 33; //Xóa quyền
@@ -67,9 +68,10 @@ class PhanQuyenController extends Controller
             'message'   => 'Xóa tên quyền thành công!'
         ]);
     }
+    //Cập nhật quyền
     public function updateQuyen(Request $request)
     {
-        $id_chuc_nang = 34; //Cập nhật quyền
+        $id_chuc_nang = 34;
         $id_quyen     = Auth::guard('sanctum')->user()->id_quyen;
         $check        = ChiTietPhanQuyen::where('id_quyen', $id_quyen)->where('id_chuc_nang', $id_chuc_nang)->first();
         if (!$check) {
@@ -87,10 +89,10 @@ class PhanQuyenController extends Controller
             'message'   => 'Cập nhật tên quyền thành công!'
         ]);
     }
-
+    //Tìm kiếm quyền
     public function search(Request $request)
     {
-        $id_chuc_nang = 45; //Tìm kiếm quyền
+        $id_chuc_nang = 45;
         $id_quyen     = Auth::guard('sanctum')->user()->id_quyen;
         $check        = ChiTietPhanQuyen::where('id_quyen', $id_quyen)->where('id_chuc_nang', $id_chuc_nang)->first();
         if (!$check) {
