@@ -9,9 +9,10 @@ use Illuminate\Support\Facades\Auth;
 
 class ChucNangController extends Controller
 {
+    //Lấy danh sách chức năng
     public function getData()
     {
-        $id_chuc_nang = 14; //Lấy danh sách chức năng
+        $id_chuc_nang = 14;
         $id_quyen     = Auth::guard('sanctum')->user()->id_quyen;
         $check        = ChiTietPhanQuyen::where('id_quyen', $id_quyen)->where('id_chuc_nang', $id_chuc_nang)->first();
         if (!$check) {
