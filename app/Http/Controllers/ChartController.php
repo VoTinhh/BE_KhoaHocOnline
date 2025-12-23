@@ -10,9 +10,10 @@ use Illuminate\Support\Facades\DB;
 
 class ChartController extends Controller
 {
+    //Thống kê tài chính
     public function chart()
     {
-        $id_chuc_nang = 13; //Thống kê tài chính
+        $id_chuc_nang = 13;
         $id_quyen     = Auth::guard('sanctum')->user()->id_quyen;
         $check        = ChiTietPhanQuyen::where('id_quyen', $id_quyen)->where('id_chuc_nang', $id_chuc_nang)->first();
         if (!$check) {
