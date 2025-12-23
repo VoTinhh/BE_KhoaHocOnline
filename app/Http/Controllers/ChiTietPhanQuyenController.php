@@ -11,9 +11,10 @@ use Illuminate\Support\Facades\Auth;
 class ChiTietPhanQuyenController extends Controller
 {
 
+    // Lấy danh sách chức năng
     public function getData(Request $request)
     {
-        $id_chuc_nang = 46; // Lấy danh sách chức năng
+        $id_chuc_nang = 46;
         $id_quyen     = Auth::guard('sanctum')->user()->id_quyen;
         $check        = ChiTietPhanQuyen::where('id_quyen', $id_quyen)->where('id_chuc_nang', $id_chuc_nang)->first();
         if (!$check) {
@@ -32,9 +33,10 @@ class ChiTietPhanQuyenController extends Controller
         ]);
     }
 
+    // Thêm mới chi tiết phân quyền
     public function store(ChiTietPhanQuyenCreateRequest $request)
     {
-        $id_chuc_nang = 47; // Thêm mới chi tiết phân quyền
+        $id_chuc_nang = 47;
         $id_quyen     = Auth::guard('sanctum')->user()->id_quyen;
         $check        = ChiTietPhanQuyen::where('id_quyen', $id_quyen)->where('id_chuc_nang', $id_chuc_nang)->first();
         if (!$check) {
@@ -54,9 +56,10 @@ class ChiTietPhanQuyenController extends Controller
         ]);
     }
 
+    // Xóa chi tiết phân quyền
     public function xoaChiTietQuyen(ChiTietPhanQuyenDeleteRequest $request)
     {
-        $id_chuc_nang = 48; // Xóa chi tiết phân quyền
+        $id_chuc_nang = 48;
         $id_quyen     = Auth::guard('sanctum')->user()->id_quyen;
         $check        = ChiTietPhanQuyen::where('id_quyen', $id_quyen)->where('id_chuc_nang', $id_chuc_nang)->first();
         if (!$check) {
