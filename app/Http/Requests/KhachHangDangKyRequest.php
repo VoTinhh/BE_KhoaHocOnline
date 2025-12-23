@@ -21,6 +21,7 @@ class KhachHangDangKyRequest extends FormRequest
             'ngay_sinh'         =>"required|date",
         ];
     }
+
     public function messages()
     {
         return [
