@@ -12,6 +12,7 @@ class KhachHang extends Authenticatable
     use HasFactory, Notifiable, HasApiTokens;
 
     protected $table = 'khach_hangs';
+
     protected $fillable = [
         'ho_va_ten',
         'email',
