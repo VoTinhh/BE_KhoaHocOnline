@@ -14,4 +14,5 @@ class ChuyenMuc extends Model
         'id_chuyen_muc_cha',
         'tinh_trang',
     ];
+    
 }
