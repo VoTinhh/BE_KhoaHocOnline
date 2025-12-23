@@ -66,4 +66,5 @@ class Kernel extends HttpKernel
     {
         $schedule->command('bookings:update-completed')->everyMinute(); // hoặc hourly()
     }
+    
 }
