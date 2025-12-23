@@ -6,26 +6,25 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class upDateLoaiKhoaHocRequest extends FormRequest
 {
-
     public function authorize(): bool
     {
         return true;
     }
-
 
     public function rules(): array
     {
         return [
             'id'              => 'required|exists:loai_khoa_hocs,id',
             'ten_khoa_hoc'    => 'required|min:4|max:30',
-            'slug_khoa_hoc'   => 'required|min:4|unique:loai_khoa_hocs,slug_khoa_hoc,'. $this->id. 'id,',
+            'slug_khoa_hoc'   => 'required|min:4|unique:loai_khoa_hocs,slug_khoa_hoc,' . $this->id . 'id,',
             'hinh_anh'        => 'required',
             'mo_ta_ngan'      => 'required|min:100',
             'tinh_trang'      => 'required|boolean',
-            'gia_ban'          =>'required|numeric|min:1',
-            'gia_goc'          =>'required|numeric|min:1',
+            'gia_ban'          => 'required|numeric|min:1',
+            'gia_goc'          => 'required|numeric|min:1',
         ];
     }
+
     public function messages(): array
     {
         return [
