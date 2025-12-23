@@ -11,12 +11,14 @@ return Application::configure(basePath: dirname(__DIR__))
         commands: __DIR__.'/../routes/console.php',
         health: '/up',
     )
+
     ->withMiddleware(function (Middleware $middleware) {
        $middleware ->alias([
         "nhanVienMiddle"    => \App\Http\Middleware\checkAdminMiddleware::class,
         "khachHangMiddle"    => \App\Http\Middleware\checkKhachHangMiddleware::class
        ]);
     })
+
     ->withExceptions(function (Exceptions $exceptions) {
 
     })->create();
