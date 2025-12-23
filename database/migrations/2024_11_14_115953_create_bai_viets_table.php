@@ -24,4 +24,5 @@ return new class extends Migration
     {
         Schema::dropIfExists('bai_viets');
     }
+
 };

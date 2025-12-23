@@ -20,4 +20,5 @@ return new class extends Migration
     {
         Schema::dropIfExists('chi_tiet_phan_quyens');
     }
+
 };

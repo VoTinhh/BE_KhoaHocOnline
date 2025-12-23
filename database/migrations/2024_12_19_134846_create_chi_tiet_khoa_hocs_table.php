@@ -21,4 +21,5 @@ return new class extends Migration
     {
         Schema::dropIfExists('chi_tiet_khoa_hocs');
     }
+
 };
