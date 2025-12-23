@@ -13,20 +13,20 @@ use Illuminate\Support\Facades\Auth;
 class BaiHocController extends Controller
 {
     public function getBaiHocByKhoaHoc($id)
-{
-    $data = BaiHoc::where('id_khoa_hoc', $id)
-                  ->where('tinh_trang', 1)
-                  ->get();
+    {
+        $data = BaiHoc::where('id_khoa_hoc', $id)
+            ->where('tinh_trang', 1)
+            ->get();
 
-    return response()->json([
-        'status' => true,
-        'data'   => $data
-    ]);
-}
-
+        return response()->json([
+            'status' => true,
+            'data'   => $data
+        ]);
+    }
+    //Thêm mới bài học
     public function store(BaiHocCreateRequest $request)
     {
-        $id_chuc_nang = 1; //Thêm mới bài học
+        $id_chuc_nang = 1;
         $id_quyen     = Auth::guard('sanctum')->user()->id_quyen;
         $check        = ChiTietPhanQuyen::where('id_quyen', $id_quyen)->where('id_chuc_nang', $id_chuc_nang)->first();
         if (!$check) {
@@ -36,21 +36,22 @@ class BaiHocController extends Controller
             ]);
         }
         BaiHoc::create([
-            'id_khoa_hoc'   =>$request->id_khoa_hoc,
-            'tieu_de'       =>$request->tieu_de,
-            'bai_hoc_so'    =>$request->bai_hoc_so,
-            'link_bai_hoc'  =>$request->link_bai_hoc,
-            'is_thu_phi'    =>$request->is_thu_phi,
-            'tinh_trang'    =>$request->tinh_trang
+            'id_khoa_hoc'   => $request->id_khoa_hoc,
+            'tieu_de'       => $request->tieu_de,
+            'bai_hoc_so'    => $request->bai_hoc_so,
+            'link_bai_hoc'  => $request->link_bai_hoc,
+            'is_thu_phi'    => $request->is_thu_phi,
+            'tinh_trang'    => $request->tinh_trang
         ]);
         return response()->json([
             'status'    =>  1,
-            'message'   =>  'Tạo mới bài học ' . $request->tieu_de . ' bài ' . $request->bai_hoc_so. ' thành công!'
+            'message'   =>  'Tạo mới bài học ' . $request->tieu_de . ' bài ' . $request->bai_hoc_so . ' thành công!'
         ]);
     }
+    //Lấy dữ liệu bài học
     public function getdata()
     {
-        $id_chuc_nang = 2; //Lấy dữ liệu bài học
+        $id_chuc_nang = 2;
         $id_quyen     = Auth::guard('sanctum')->user()->id_quyen;
         $check        = ChiTietPhanQuyen::where('id_quyen', $id_quyen)->where('id_chuc_nang', $id_chuc_nang)->first();
         if (!$check) {
@@ -64,9 +65,10 @@ class BaiHocController extends Controller
             'data'    =>  $data,
         ]);
     }
+    //Xóa bài học
     public function destroy(BaiHocDeleteRequest $request)
     {
-        $id_chuc_nang = 3; //Xóa bài học
+        $id_chuc_nang = 3;
         $id_quyen     = Auth::guard('sanctum')->user()->id_quyen;
         $check        = ChiTietPhanQuyen::where('id_quyen', $id_quyen)->where('id_chuc_nang', $id_chuc_nang)->first();
         if (!$check) {
@@ -75,15 +77,16 @@ class BaiHocController extends Controller
                 'message'   =>  'Bạn không có quyền thực hiện chức năng này!'
             ]);
         }
-        BaiHoc::where('id',$request->id)->delete();
+        BaiHoc::where('id', $request->id)->delete();
         return response()->json([
             'status'    =>  1,
-            'message'   =>  'Bạn đã xóa bài học ' . $request->tieu_de . ' bài ' . $request->bai_hoc_so. ' thành công!'
+            'message'   =>  'Bạn đã xóa bài học ' . $request->tieu_de . ' bài ' . $request->bai_hoc_so . ' thành công!'
         ]);
     }
+    //Cập nhật bài học
     public function update(BaiHocUpDateRequest $request)
     {
-        $id_chuc_nang = 4; //Cập nhật bài học
+        $id_chuc_nang = 4;
         $id_quyen     = Auth::guard('sanctum')->user()->id_quyen;
         $check        = ChiTietPhanQuyen::where('id_quyen', $id_quyen)->where('id_chuc_nang', $id_chuc_nang)->first();
         if (!$check) {
@@ -92,22 +95,23 @@ class BaiHocController extends Controller
                 'message'   =>  'Bạn không có quyền thực hiện chức năng này!'
             ]);
         }
-        BaiHoc::where('id',$request->id)->update([
-            'id_khoa_hoc'   =>$request->id_khoa_hoc,
-            'tieu_de'       =>$request->tieu_de,
-            'bai_hoc_so'    =>$request->bai_hoc_so,
-            'link_bai_hoc'  =>$request->link_bai_hoc,
-            'is_thu_phi'    =>$request->is_thu_phi,
-            'tinh_trang'    =>$request->tinh_trang
+        BaiHoc::where('id', $request->id)->update([
+            'id_khoa_hoc'   => $request->id_khoa_hoc,
+            'tieu_de'       => $request->tieu_de,
+            'bai_hoc_so'    => $request->bai_hoc_so,
+            'link_bai_hoc'  => $request->link_bai_hoc,
+            'is_thu_phi'    => $request->is_thu_phi,
+            'tinh_trang'    => $request->tinh_trang
         ]);
         return response()->json([
             'status'    =>  1,
-            'message'   =>  'Đã cập nhật bài học ' . $request->tieu_de . ' bài ' . $request->bai_hoc_so. ' thành công!'
+            'message'   =>  'Đã cập nhật bài học ' . $request->tieu_de . ' bài ' . $request->bai_hoc_so . ' thành công!'
         ]);
     }
+    //Đổi trạng thái bài học
     public function changeStatus(Request $request)
     {
-        $id_chuc_nang = 5; //Đổi trạng thái bài học
+        $id_chuc_nang = 5;
         $id_quyen     = Auth::guard('sanctum')->user()->id_quyen;
         $check        = ChiTietPhanQuyen::where('id_quyen', $id_quyen)->where('id_chuc_nang', $id_chuc_nang)->first();
         if (!$check) {
@@ -130,11 +134,11 @@ class BaiHocController extends Controller
             'message'   =>  'Bạn đã cập nhật bài viết ' . $request->tieu_de . ' thành công'
         ]);
     }
-
+    //Tìm kiếm bài học
     public function search(Request $request)
     {
 
-        $id_chuc_nang = 6; //Tìm kiếm bài học
+        $id_chuc_nang = 6;
         $id_quyen     = Auth::guard('sanctum')->user()->id_quyen;
         $check        = ChiTietPhanQuyen::where('id_quyen', $id_quyen)->where('id_chuc_nang', $id_chuc_nang)->first();
         if (!$check) {
