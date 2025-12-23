@@ -12,9 +12,10 @@ use Illuminate\Support\Facades\Auth;
 
 class LoaiKhoaHocController extends Controller
 {
+    //Thêm mới loại khóa học
     public function store(LoaiKhoaHocRequestCreate $request)
     {
-        $id_chuc_nang = 19; //Thêm mới loại khóa học
+        $id_chuc_nang = 19;
         $id_quyen     = Auth::guard('sanctum')->user()->id_quyen;
         $check        = ChiTietPhanQuyen::where('id_quyen', $id_quyen)->where('id_chuc_nang', $id_chuc_nang)->first();
         if (!$check) {
@@ -37,9 +38,10 @@ class LoaiKhoaHocController extends Controller
             'message' => 'Đã thêm mới loại khóa ' . $request->ten_khoa_hoc . ' thành công.'
         ]);
     }
+    //Lấy dữ liệu loại khóa học
     public function getData()
     {
-        $id_chuc_nang = 20; //Lấy dữ liệu loại khóa học
+        $id_chuc_nang = 20;
         $id_quyen     = Auth::guard('sanctum')->user()->id_quyen;
         $check        = ChiTietPhanQuyen::where('id_quyen', $id_quyen)->where('id_chuc_nang', $id_chuc_nang)->first();
         if (!$check) {
@@ -60,9 +62,10 @@ class LoaiKhoaHocController extends Controller
             'data'  => $data
         ]);
     }
+    //Xóa loại khóa học
     public function destroy(XoaLoaiKhoaHocRequest $request)
     {
-        $id_chuc_nang = 21; //Xóa loại khóa học
+        $id_chuc_nang = 21;
         $id_quyen     = Auth::guard('sanctum')->user()->id_quyen;
         $check        = ChiTietPhanQuyen::where('id_quyen', $id_quyen)->where('id_chuc_nang', $id_chuc_nang)->first();
         if (!$check) {
@@ -77,9 +80,10 @@ class LoaiKhoaHocController extends Controller
             'message'   =>  'Bạn đã xóa loại khóa ' . $request->ten_khoa_hoc . ' thành công!'
         ]);
     }
+    //Cập nhật loại khóa học
     public function update(upDateLoaiKhoaHocRequest $request)
     {
-        $id_chuc_nang = 22; //Cập nhật loại khóa học
+        $id_chuc_nang = 22;
         $id_quyen     = Auth::guard('sanctum')->user()->id_quyen;
         $check        = ChiTietPhanQuyen::where('id_quyen', $id_quyen)->where('id_chuc_nang', $id_chuc_nang)->first();
         if (!$check) {
@@ -102,10 +106,10 @@ class LoaiKhoaHocController extends Controller
             'message'   =>  'Bạn đã cập nhật loại khóa ' . $request->ten_khoa_hoc . ' thành công'
         ]);
     }
-
+    //Đổi trạng thái loại khóa học
     public function changeStatus(Request $request)
     {
-        $id_chuc_nang = 23; //Đổi trạng thái loại khóa học
+        $id_chuc_nang = 23;
         $id_quyen     = Auth::guard('sanctum')->user()->id_quyen;
         $check        = ChiTietPhanQuyen::where('id_quyen', $id_quyen)->where('id_chuc_nang', $id_chuc_nang)->first();
         if (!$check) {
@@ -128,10 +132,10 @@ class LoaiKhoaHocController extends Controller
             'message'   =>  'Bạn đã cập nhật loại khóa ' . $request->ten_khoa_hoc . ' thành công'
         ]);
     }
-
+    //Tìm kiếm loại khóa học
     public function search(Request $request)
     {
-        $id_chuc_nang = 24; //Tìm kiếm loại khóa học
+        $id_chuc_nang = 24;
         $id_quyen     = Auth::guard('sanctum')->user()->id_quyen;
         $check        = ChiTietPhanQuyen::where('id_quyen', $id_quyen)->where('id_chuc_nang', $id_chuc_nang)->first();
         if (!$check) {
