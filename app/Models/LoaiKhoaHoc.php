@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class LoaiKhoaHoc extends Model
 {
     protected $table = 'loai_khoa_hocs';
+    
     protected $fillable = [
         'ten_khoa_hoc',
         'slug_khoa_hoc',
