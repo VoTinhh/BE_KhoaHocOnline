@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class TaiChinh extends Model
 {
     protected $table = 'tai_chinhs';
+
     protected $fillable = [
         'id_khach_hang',
         'id_nhan_vien',
@@ -16,6 +17,7 @@ class TaiChinh extends Model
         'is_thanh_toan',
         'hash'
     ];
+
     const NAP_BANG_TAY = 1;
     const NAP_QUA_BANK = 0;
 }
