@@ -44,9 +44,10 @@ class KhachHangController extends Controller
             'message' => 'Bạn Đăng Ký Tài Khoản  ' . $request->email . '  Thành Công'
         ]);
     }
+     //Lấy dữ liệu khách hàng
     public function getData()
     {
-        $id_chuc_nang = 38; //Lấy dữ liệu khách hàng
+        $id_chuc_nang = 38;
         $id_quyen     = Auth::guard('sanctum')->user()->id_quyen;
         $check        = ChiTietPhanQuyen::where('id_quyen', $id_quyen)->where('id_chuc_nang', $id_chuc_nang)->first();
         if (!$check) {
@@ -60,9 +61,10 @@ class KhachHangController extends Controller
             'data' => $data
         ]);
     }
+    //Xóa khách hàng
     public function destroy(XoaKhachHangRequest $request)
     {
-        $id_chuc_nang = 15; //Xóa khách hàng
+        $id_chuc_nang = 15;
         $id_quyen     = Auth::guard('sanctum')->user()->id_quyen;
         $check        = ChiTietPhanQuyen::where('id_quyen', $id_quyen)->where('id_chuc_nang', $id_chuc_nang)->first();
         if (!$check) {
@@ -77,9 +79,10 @@ class KhachHangController extends Controller
             'message'   =>  'Đã xóa khách hàng ' . $request->ten_khoa_hoc . ' thành công'
         ]);
     }
+    //Cập nhật khách hàng
     public function update(upDateKhachHangRequest $request)
     {
-        $id_chuc_nang = 16; //Cập nhật khách hàng
+        $id_chuc_nang = 16;
         $id_quyen     = Auth::guard('sanctum')->user()->id_quyen;
         $check        = ChiTietPhanQuyen::where('id_quyen', $id_quyen)->where('id_chuc_nang', $id_chuc_nang)->first();
         if (!$check) {
@@ -100,9 +103,10 @@ class KhachHangController extends Controller
             'message'   =>  'Đã cập nhật khách hàng ' . $request->ten_khoa_hoc . ' thành công'
         ]);
     }
+    //Đổi trạng thái khách hàng
     public function changeStatus(Request $request)
     {
-        $id_chuc_nang = 17; //Đổi trạng thái khách hàng
+        $id_chuc_nang = 17;
         $id_quyen     = Auth::guard('sanctum')->user()->id_quyen;
         $check        = ChiTietPhanQuyen::where('id_quyen', $id_quyen)->where('id_chuc_nang', $id_chuc_nang)->first();
         if (!$check) {
@@ -125,9 +129,10 @@ class KhachHangController extends Controller
             'message'   =>  'Bạn đã cập nhật khách hàng ' . $request->ho_va_ten . ' thành công'
         ]);
     }
+    //Tìm kiếm khách hàng
     public function search(Request $request)
     {
-        $id_chuc_nang = 18; //Tìm kiếm khách hàng
+        $id_chuc_nang = 18;
         $id_quyen     = Auth::guard('sanctum')->user()->id_quyen;
         $check        = ChiTietPhanQuyen::where('id_quyen', $id_quyen)->where('id_chuc_nang', $id_chuc_nang)->first();
         if (!$check) {
