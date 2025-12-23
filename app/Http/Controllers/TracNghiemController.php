@@ -12,9 +12,10 @@ use Illuminate\Support\Facades\Auth;
 
 class TracNghiemController extends Controller
 {
+    //Thêm mới trắc nghiệm
     public function store(TracNghiemCreateRequest $request)
     {
-        $id_chuc_nang = 39; //Thêm mới trắc nghiệm
+        $id_chuc_nang = 39;
         $id_quyen     = Auth::guard('sanctum')->user()->id_quyen;
         $check        = ChiTietPhanQuyen::where('id_quyen', $id_quyen)->where('id_chuc_nang', $id_chuc_nang)->first();
         if (!$check) {
@@ -37,9 +38,10 @@ class TracNghiemController extends Controller
             'message'   =>  'Tạo mới trắc nghiệm ' . $request->cau_hoi . ' thành công!'
         ]);
     }
+    //Lấy dữ liệu trắc nghiệm
     public function getdata()
     {
-        $id_chuc_nang =40; //Lấy dữ liệu trắc nghiệm
+        $id_chuc_nang =40;
         $id_quyen     = Auth::guard('sanctum')->user()->id_quyen;
         $check        = ChiTietPhanQuyen::where('id_quyen', $id_quyen)->where('id_chuc_nang', $id_chuc_nang)->first();
         if (!$check) {
@@ -83,9 +85,10 @@ class TracNghiemController extends Controller
             'so_cau_dung'    =>  $so_cau_dung,
         ]);
     }
+    //Xóa trắc nghiệm
     public function destroy(TracNghiemDeleteRequest $request)
     {
-        $id_chuc_nang = 41; //Xóa trắc nghiệm
+        $id_chuc_nang = 41;
         $id_quyen     = Auth::guard('sanctum')->user()->id_quyen;
         $check        = ChiTietPhanQuyen::where('id_quyen', $id_quyen)->where('id_chuc_nang', $id_chuc_nang)->first();
         if (!$check) {
@@ -100,9 +103,10 @@ class TracNghiemController extends Controller
             'message'   =>  'Bạn đã xóa trắc nghiệm ' . $request->cau_hoi . ' thành công!'
         ]);
     }
+    //Cập nhật trắc nghiệm
     public function update(TracNghiemUpdateRequest $request)
     {
-        $id_chuc_nang = 42; //Cập nhật trắc nghiệm
+        $id_chuc_nang = 42;
         $id_quyen     = Auth::guard('sanctum')->user()->id_quyen;
         $check        = ChiTietPhanQuyen::where('id_quyen', $id_quyen)->where('id_chuc_nang', $id_chuc_nang)->first();
         if (!$check) {
@@ -125,9 +129,10 @@ class TracNghiemController extends Controller
             'message'   =>  'Đã cập nhật trắc nghiệm ' . $request->cau_hoi . ' thành công!'
         ]);
     }
+    //Đổi trạng thái trắc nghiệm
     public function changeStatus(Request $request)
     {
-        $id_chuc_nang = 43; //Đổi trạng thái trắc nghiệm
+        $id_chuc_nang = 43;
         $id_quyen     = Auth::guard('sanctum')->user()->id_quyen;
         $check        = ChiTietPhanQuyen::where('id_quyen', $id_quyen)->where('id_chuc_nang', $id_chuc_nang)->first();
         if (!$check) {
@@ -150,10 +155,10 @@ class TracNghiemController extends Controller
             'message'   =>  'Bạn đã đổi trạng thái trắc nghiệm ' . $request->cau_hoi . ' thành công'
         ]);
     }
-
+    //Tìm kiếm trắc nghiệm
     public function search(Request $request)
     {
-        $id_chuc_nang = 44; //Tìm kiếm trắc nghiệm
+        $id_chuc_nang = 44;
         $id_quyen     = Auth::guard('sanctum')->user()->id_quyen;
         $check        = ChiTietPhanQuyen::where('id_quyen', $id_quyen)->where('id_chuc_nang', $id_chuc_nang)->first();
         if (!$check) {
