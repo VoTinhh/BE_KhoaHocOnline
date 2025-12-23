@@ -11,6 +11,7 @@ class TaiChinhRequestCreate extends FormRequest
     {
         return true;
     }
+
     public function rules(): array
     {
         return [
@@ -19,6 +20,7 @@ class TaiChinhRequestCreate extends FormRequest
             'ly_do_nap_tien'    =>'required|min:4|max:100',
         ];
     }
+
     public function messages()
     {
         return [
