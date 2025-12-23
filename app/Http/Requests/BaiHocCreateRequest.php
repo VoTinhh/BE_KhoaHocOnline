@@ -22,6 +22,7 @@ class BaiHocCreateRequest extends FormRequest
             'link_bai_hoc'  => 'required|min:10|max:1000',
         ];
     }
+    
     public function messages()
     {
         return [
