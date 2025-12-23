@@ -15,7 +15,6 @@ class checkAdminMiddleware
         $user = Auth::guard('sanctum')->user();
         if($user && $user instanceof \App\Models\NhanVien )  {
 
-
         return $next($request);
         } else {
             return response()->json([
