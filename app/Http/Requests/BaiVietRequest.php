@@ -22,6 +22,7 @@ class BaiVietRequest extends FormRequest
             'tinh_trang'        => 'required|boolean',
         ];
     }
+
     public function messages(): array
     {
         return [
