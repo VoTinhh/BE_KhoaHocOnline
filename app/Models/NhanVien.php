@@ -12,7 +12,6 @@ class NhanVien extends Authenticatable
     use HasFactory, Notifiable, HasApiTokens;
 
     protected $table = 'nhan_viens';
-
     protected $fillable = [
         'ho_va_ten',
         'email',
