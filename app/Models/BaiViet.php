@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class BaiViet extends Model
 {
     protected $table = 'bai_viets';
+
     protected $fillable = [
         'tieu_de',
         'slug_tieu_de',
