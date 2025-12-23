@@ -17,6 +17,7 @@ class BaiHocDeleteRequest extends FormRequest
              'id'        =>'required|exists:bai_hocs,id'
         ];
     }
+    
     public function messages()
     {
         return [
