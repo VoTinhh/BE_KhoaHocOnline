@@ -12,7 +12,6 @@ class BaiHocUpDateRequest extends FormRequest
         return true;
     }
 
-
     public function rules(): array
     {
         return [
@@ -25,6 +24,7 @@ class BaiHocUpDateRequest extends FormRequest
             'tinh_trang'    => 'required|boolean',
         ];
     }
+
     public function messages()
     {
         return [
