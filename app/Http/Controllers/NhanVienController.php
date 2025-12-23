@@ -16,9 +16,10 @@ use Illuminate\Support\Facades\Http;
 
 class NhanVienController extends Controller
 {
+    //Lấy dữ liệu nhân viên
     public function getData()
     {
-        $id_chuc_nang = 25; //Lấy dữ liệu nhân viên
+        $id_chuc_nang = 25;
         $id_quyen     = Auth::guard('sanctum')->user()->id_quyen;
         $check        = ChiTietPhanQuyen::where('id_quyen', $id_quyen)->where('id_chuc_nang', $id_chuc_nang)->first();
         if (!$check) {
@@ -35,9 +36,10 @@ class NhanVienController extends Controller
             'data' => $data
         ]);
     }
+    //Thêm mới nhân viên
     public function store(NhanVienCreateRequest $request)
     {
-        $id_chuc_nang = 26; //Thêm mới nhân viên
+        $id_chuc_nang = 26;
         $id_quyen     = Auth::guard('sanctum')->user()->id_quyen;
         $check        = ChiTietPhanQuyen::where('id_quyen', $id_quyen)->where('id_chuc_nang', $id_chuc_nang)->first();
         if (!$check) {
@@ -61,9 +63,10 @@ class NhanVienController extends Controller
             'message' => 'Đã tạo mới nhân viên ' . $request->ho_va_ten . ' thành công.',
         ]);
     }
+    //Đổi trạng thái nhân viên
     public function changeStatus(Request $request)
     {
-        $id_chuc_nang = 27; //Đổi trạng thái nhân viên
+        $id_chuc_nang = 27;
         $id_quyen     = Auth::guard('sanctum')->user()->id_quyen;
         $check        = ChiTietPhanQuyen::where('id_quyen', $id_quyen)->where('id_chuc_nang', $id_chuc_nang)->first();
         if (!$check) {
@@ -83,9 +86,10 @@ class NhanVienController extends Controller
             'message' => 'Admin đã đổi trạng thái ' . $nhan_vien->ho_va_ten . ' thành công ',
         ]);
     }
+    //Cập nhật nhân viên
     public function updateNhanVien(NhanVienUpdateRequest $request)
     {
-        $id_chuc_nang = 28; //Cập nhật nhân viên
+        $id_chuc_nang = 28;
         $id_quyen     = Auth::guard('sanctum')->user()->id_quyen;
         $check        = ChiTietPhanQuyen::where('id_quyen', $id_quyen)->where('id_chuc_nang', $id_chuc_nang)->first();
         if (!$check) {
@@ -108,9 +112,10 @@ class NhanVienController extends Controller
             'message' => 'Đã cập nhật thành công'
         ]);
     }
+    //Xóa nhân viên
     public function deleteNhanVien(NhanVienDeleteRequest $request)
     {
-        $id_chuc_nang = 29; //Xóa nhân viên
+        $id_chuc_nang = 29;
         $id_quyen     = Auth::guard('sanctum')->user()->id_quyen;
         $check        = ChiTietPhanQuyen::where('id_quyen', $id_quyen)->where('id_chuc_nang', $id_chuc_nang)->first();
         if (!$check) {
