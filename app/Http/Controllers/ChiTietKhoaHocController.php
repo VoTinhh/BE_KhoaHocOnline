@@ -49,11 +49,13 @@ class ChiTietKhoaHocController extends Controller
     public function danhSachKhoaHoc()
     {
         $user = Auth::guard('sanctum')->user();
+
         // $data = ChiTietKhoaHoc::select('loai_khoa_hocs.ten_khoa_hoc','loai_khoa_hocs.hinh_anh','khach_hangs.created_at','so_tien_mua')
         //                         ->join('loai_khoa_hocs','loai_khoa_hocs.id','chi_tiet_khoa_hocs.id_khoa_hoc')
         //                         ->join('khach_hangs','khach_hangs.id','chi_tiet_khoa_hocs.id_khach_hang')
         //                         ->where('khach_hangs.id',$user->id)
         //                         ->get();
+        
         $data = ChiTietKhoaHoc::select(
             'loai_khoa_hocs.id as id_khoa_hoc',
             'loai_khoa_hocs.ten_khoa_hoc',
