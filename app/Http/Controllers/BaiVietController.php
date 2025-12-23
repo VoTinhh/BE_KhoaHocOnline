@@ -13,9 +13,10 @@ use Illuminate\Support\Facades\Auth;
 
 class BaiVietController extends Controller
 {
+    //Thêm mới bài viết
     public function store(BaiVietRequest $request)
     {
-        $id_chuc_nang = 7; //Thêm mới bài viết
+        $id_chuc_nang = 7;
         $id_quyen     = Auth::guard('sanctum')->user()->id_quyen;
         $check        = ChiTietPhanQuyen::where('id_quyen', $id_quyen)->where('id_chuc_nang', $id_chuc_nang)->first();
         if (!$check) {
@@ -37,9 +38,11 @@ class BaiVietController extends Controller
             'message'   =>  'Tạo mới bài viết ' . $request->tieu_de . ' thành công!'
         ]);
     }
+
+    //Lấy dữ liệu bài viết
     public function getdata()
     {
-        $id_chuc_nang = 8; //Lấy dữ liệu bài viết
+        $id_chuc_nang = 8;
         $id_quyen     = Auth::guard('sanctum')->user()->id_quyen;
         $check        = ChiTietPhanQuyen::where('id_quyen', $id_quyen)->where('id_chuc_nang', $id_chuc_nang)->first();
         if (!$check) {
@@ -62,9 +65,10 @@ class BaiVietController extends Controller
         ]);
     }
 
+    //Xóa bài viết
     public function destroy(DeleteBaiVietRequest $request)
     {
-        $id_chuc_nang = 9; //Xóa bài viết
+        $id_chuc_nang = 9;
         $id_quyen     = Auth::guard('sanctum')->user()->id_quyen;
         $check        = ChiTietPhanQuyen::where('id_quyen', $id_quyen)->where('id_chuc_nang', $id_chuc_nang)->first();
         if (!$check) {
@@ -79,9 +83,11 @@ class BaiVietController extends Controller
             'message'   =>  'Bạn đã xóa bài viết ' . $request->tieu_de . ' thành công!'
         ]);
     }
+
+    //Cập nhật bài viết
     public function update(UpDateBaiVietRequest $request)
     {
-        $id_chuc_nang = 10; //Cập nhật bài viết
+        $id_chuc_nang = 10;
         $id_quyen     = Auth::guard('sanctum')->user()->id_quyen;
         $check        = ChiTietPhanQuyen::where('id_quyen', $id_quyen)->where('id_chuc_nang', $id_chuc_nang)->first();
         if (!$check) {
@@ -104,9 +110,10 @@ class BaiVietController extends Controller
         ]);
     }
 
+    //Đổi trạng thái bài viết
     public function changeStatus(Request $request)
     {
-        $id_chuc_nang = 11; //Đổi trạng thái bài viết
+        $id_chuc_nang = 11;
         $id_quyen     = Auth::guard('sanctum')->user()->id_quyen;
         $check        = ChiTietPhanQuyen::where('id_quyen', $id_quyen)->where('id_chuc_nang', $id_chuc_nang)->first();
         if (!$check) {
@@ -130,10 +137,11 @@ class BaiVietController extends Controller
         ]);
     }
 
+    //Tìm kiếm bài viết
     public function search(Request $request)
     {
 
-        $id_chuc_nang = 12; //Tìm kiếm bài viết
+        $id_chuc_nang = 12;
         $id_quyen     = Auth::guard('sanctum')->user()->id_quyen;
         $check        = ChiTietPhanQuyen::where('id_quyen', $id_quyen)->where('id_chuc_nang', $id_chuc_nang)->first();
         if (!$check) {
