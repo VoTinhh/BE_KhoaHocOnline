@@ -1,66 +1,363 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# HỆ THỐNG QUẢN LÝ KHOÁ HỌC TRỰC TUYẾN - Backend
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+API backend toàn diện để quản lý khoá học trực tuyến, xây dựng bằng Laravel 11 với khả năng xử lý tạo khoá học, quản lý, phân quyền người dùng và quản lý tài chính.
 
-## About Laravel
+## 📋 Mục Lục
+- [Tính Năng](#tính-năng)
+- [Yêu Cầu Hệ Thống](#yêu-cầu-hệ-thống)
+- [Cài Đặt](#cài-đặt)
+- [Cấu Hình](#cấu-hình)
+- [Thiết Lập Cơ Sở Dữ Liệu](#thiết-lập-cơ-sở-dữ-liệu)
+- [Tài Liệu API](#tài-liệu-api)
+- [Cấu Trúc Dự Án](#cấu-trúc-dự-án)
+- [Models & Cơ Sở Dữ Liệu](#models--cơ-sở-dữ-liệu)
+- [Xác Thực](#xác-thực)
+- [Kiểm Thử](#kiểm-thử)
+- [Đóng Góp](#đóng-góp)
+- [Giấy Phép](#giấy-phép)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## ✨ Tính Năng
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Quản Lý Khoá Học
+- Tạo, xem, cập nhật và xoá khoá học
+- Hỗ trợ nhiều danh mục khoá học
+- Thông tin khoá học chi tiết bao gồm mô tả, giá cả và thời lượng
+- Quản lý bài học con và nội dung khoá học
+- Theo dõi bài kiểm tra với module `TracNghiem`
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Quản Lý Người Dùng
+- Xác thực và phân quyền người dùng
+- Kiểm soát truy cập dựa trên vai trò (RBAC) với quyền tùy chỉnh
+- Quản lý hồ sơ khách hàng (KhachHang)
+- Quản lý tài khoản nhân viên (NhanVien)
+- Hệ thống phân quyền phân cấp (PhanQuyen, ChiTietPhanQuyen)
 
-## Learning Laravel
+### Quản Lý Tài Chính
+- Theo dõi số dư tài khoản (TaiChinh)
+- Quản lý giao dịch
+- Báo cáo và phân tích tài chính
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Quản Lý Nội Dung
+- Hệ thống đăng bài viết/bài báo (BaiViet)
+- Quản lý danh mục (ChuyenMuc)
+- Quản lý bài học (BaiHoc)
+- Hỗ trợ nhiều loại nội dung khác nhau
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### Tính Năng Bổ Sung
+- Thông báo email sử dụng Laravel Mail
+- Xác thực khóa API qua Laravel Sanctum
+- Tài liệu Swagger/OpenAPI
+- Ghi nhật ký và xử lý lỗi toàn diện
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 🔧 Yêu Cầu Hệ Thống
 
-## Laravel Sponsors
+- **PHP**: >= 8.2
+- **Laravel**: 11.x
+- **Cơ Sở Dữ Liệu**: MySQL/MariaDB hoặc tương đương
+- **Composer**: Phiên bản mới nhất
+- **Node.js**: 18+ (cho tài nguyên frontend)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### Các Mở Rộng PHP Cần Thiết
+- OpenSSL
+- PDO
+- Mbstring
+- Tokenizer
+- XML
+- JSON
+- Curl
 
-### Premium Partners
+## 📦 Cài Đặt
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+### 1. Sao Chép Kho Lưu Trữ
+```bash
+cd c:\xampp\htdocs\1401
+git clone <repository-url> BE_20
+cd BE_20
+```
 
-## Contributing
+### 2. Cài Đặt Các Phụ Thuộc PHP
+```bash
+composer install
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 3. Cài Đặt Các Phụ Thuộc Node (nếu cần)
+```bash
+npm install
+```
 
-## Code of Conduct
+### 4. Tạo Khóa Ứng Dụng
+```bash
+php artisan key:generate
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 5. Tạo Tệp Môi Trường
+```bash
+copy .env.example .env
+```
 
-## Security Vulnerabilities
+## ⚙️ Cấu Hình
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Cập Nhật Tệp .env
+Cấu hình các biến sau trong `.env`:
 
-## License
+```env
+APP_NAME=ONLINE_COURSE_MANAGEMENT_SYSTEM
+APP_ENV=local
+APP_DEBUG=true
+APP_URL=http://localhost:8000
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=be_course_db
+DB_USERNAME=root
+DB_PASSWORD=
+
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=your_username
+MAIL_PASSWORD=your_password
+MAIL_FROM_ADDRESS=noreply@coursemanagement.com
+```
+
+### Tệp Cấu Hình
+Các tệp cấu hình chính nằm trong `config/`:
+- `app.php` - Cấu hình ứng dụng
+- `database.php` - Kết nối cơ sở dữ liệu
+- `auth.php` - Cài đặt xác thực
+- `mail.php` - Cấu hình email
+- `sanctum.php` - Xác thực token API
+- `l5-swagger.php` - Cài đặt Swagger/OpenAPI
+
+## 🗄️ Thiết Lập Cơ Sở Dữ Liệu
+
+### 1. Tạo Cơ Sở Dữ Liệu
+```bash
+mysql -u root -p
+CREATE DATABASE be_course_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+EXIT;
+```
+
+### 2. Chạy Migration
+```bash
+php artisan migrate
+```
+
+### 3. Tạo Dữ Liệu Mẫu (Tùy Chọn)
+```bash
+php artisan db:seed
+```
+
+### 4. Tạo Tài Liệu Swagger
+```bash
+php artisan l5-swagger:generate
+```
+
+## 📚 Tài Liệu API
+
+### Swagger/OpenAPI
+Truy cập tài liệu API tại: `http://localhost:8000/api/documentation`
+
+### Các Endpoint API Chính
+Các tuyến API được định nghĩa trong `routes/api.php` bao gồm các endpoint cho:
+- Xác thực người dùng
+- Quản lý khoá học
+- Quản lý bài học
+- Theo dõi bài kiểm tra/đánh giá
+- Quản lý danh mục
+- Quản lý bài viết
+- Quản lý quyền hạn
+- Theo dõi tài chính
+
+## 📁 Cấu Trúc Dự Án
+
+```
+BE_20/
+├── app/
+│   ├── Http/
+│   │   ├── Controllers/       # API controllers
+│   │   ├── Middleware/        # HTTP middleware
+│   │   ├── Requests/          # Kiểm tra form request
+│   │   └── Kernel.php         # Cấu hình HTTP kernel
+│   ├── Mail/                  # Các lớp Mailable
+│   ├── Models/                # Các model Eloquent
+│   └── Providers/             # Service providers
+├── config/                    # Tệp cấu hình
+├── database/
+│   ├── migrations/            # Database migrations
+│   ├── seeders/              # Database seeders
+│   └── factories/            # Model factories để kiểm thử
+├── routes/
+│   ├── api.php               # Tuyến API
+│   ├── web.php               # Tuyến web
+│   └── console.php           # Lệnh console
+├── storage/                   # Lưu trữ ứng dụng
+│   ├── logs/                 # Nhật ký ứng dụng
+│   └── api-docs/             # Tài liệu Swagger
+├── tests/                     # Kiểm thử PHPUnit
+├── public/                    # Tài nguyên công khai
+└── resources/                 # Tài nguyên frontend (views, CSS, JS)
+```
+
+## 🗂️ Models & Cơ Sở Dữ Liệu
+
+### Models Chính
+
+| Model | Bảng | Mô Tả |
+|-------|------|-------|
+| `User` | users | Xác thực người dùng và dữ liệu người dùng cơ bản |
+| `KhachHang` | khach_hangs | Hồ sơ khách hàng/học viên |
+| `NhanVien` | nhan_viens | Hồ sơ nhân viên/quản lý |
+| `LoaiKhoaHoc` | loai_khoa_hocs | Danh mục/loại khoá học |
+| `ChiTietKhoaHoc` | chi_tiet_khoa_hocs | Thông tin khoá học chi tiết |
+| `BaiHoc` | bai_hocs | Bài học trong khoá học |
+| `BaiViet` | bai_viets | Bài viết/bài báo trên blog |
+| `ChuyenMuc` | chuyen_mucs | Danh mục bài viết |
+| `TracNghiem` | trac_nghiems | Bài kiểm tra/đánh giá |
+| `PhanQuyen` | phan_quyens | Vai trò/nhóm quyền hạn |
+| `ChiTietPhanQuyen` | chi_tiet_phan_quyens | Quyền hạn riêng lẻ |
+| `ChucNang` | chuc_nangs | Định nghĩa chức năng/tính năng |
+| `TaiChinh` | tai_chinhs | Bản ghi tài chính/theo dõi số dư |
+
+### Mối Quan Hệ Cơ Sở Dữ Liệu
+- One-to-Many: User → KhachHang, NhanVien
+- Many-to-Many: PhanQuyen ↔ ChucNang (qua ChiTietPhanQuyen)
+- One-to-Many: LoaiKhoaHoc → ChiTietKhoaHoc
+- One-to-Many: ChiTietKhoaHoc → BaiHoc
+- One-to-Many: ChuyenMuc → BaiViet
+
+## 🔐 Xác Thực
+
+### Xác Thực Dựa Trên Token Sanctum
+Ứng dụng sử dụng Laravel Sanctum để xác thực API:
+
+```php
+// Trong ứng dụng frontend/API client của bạn
+$token = 'your-sanctum-token';
+Header: 'Authorization: Bearer ' . $token
+```
+
+### Lấy Token
+```bash
+POST /api/login
+{
+    "email": "user@example.com",
+    "password": "password"
+}
+```
+
+### Sử Dụng Token
+Đưa token vào tất cả các yêu cầu API tiếp theo:
+```
+Authorization: Bearer YOUR_TOKEN_HERE
+```
+
+## 🧪 Kiểm Thử
+
+### Chạy Tất Cả Kiểm Thử
+```bash
+php artisan test
+```
+
+### Chạy Kiểm Thử Tính Năng
+```bash
+php artisan test --filter Feature
+```
+
+### Chạy Kiểm Thử Đơn Vị
+```bash
+php artisan test --filter Unit
+```
+
+### Tạo Báo Cáo Bao Phủ Kiểm Thử
+```bash
+php artisan test --coverage
+```
+
+Các tệp kiểm thử nằm trong thư mục `tests/` và được tổ chức như:
+- `tests/Feature/` - Kiểm thử tính năng/tích hợp
+- `tests/Unit/` - Kiểm thử đơn vị
+
+## 🚀 Chạy Ứng Dụng
+
+### Server Phát Triển
+```bash
+php artisan serve
+```
+Truy cập ứng dụng tại: `http://localhost:8000`
+
+### Xử Lý Hàng Đợi (nếu cần)
+```bash
+php artisan queue:work
+```
+
+### Quản Lý Bộ Nhớ Đệm
+```bash
+php artisan cache:clear
+php artisan config:clear
+php artisan route:clear
+```
+
+## 📧 Cấu Hình Email
+
+Ứng dụng sử dụng Laravel Mail để gửi thông báo. Cấu hình cài đặt SMTP trong `.env`:
+
+```env
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=your_username
+MAIL_PASSWORD=your_password
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS=noreply@coursemanagement.com
+MAIL_FROM_NAME="Quản Lý Khoá Học Trực Tuyến"
+```
+
+Các mẫu email và lớp mailable nằm trong `app/Mail/`.
+
+## 🔧 Các Lệnh Artisan Hữu Ích
+
+```bash
+# Migrations
+php artisan migrate              # Chạy tất cả migrations đang chờ
+php artisan migrate:rollback    # Hoàn tác batch migration cuối cùng
+php artisan migrate:refresh     # Hoàn tác tất cả và chạy lại migrations
+
+# Cơ Sở Dữ Liệu
+php artisan db:seed             # Chạy database seeders
+php artisan tinker              # Shell tương tác
+
+# Bộ Nhớ Đệm & Cấu Hình
+php artisan cache:clear         # Xóa bộ nhớ đệm ứng dụng
+php artisan config:cache        # Bộ nhớ đệm tệp cấu hình
+php artisan route:cache         # Tuyến bộ nhớ đệm
+
+# Phát Triển
+php artisan make:model ModelName         # Tạo model mới
+php artisan make:controller ControllerName  # Tạo controller
+php artisan make:migration migration_name   # Tạo migration
+php artisan make:request RequestName        # Tạo form request
+```
+
+## 📝 Tệp Môi Trường
+
+- `.env.example` - Ví dụ cấu hình môi trường
+- `.env` - Cấu hình môi trường cục bộ của bạn (không commit vào git)
+
+## 🤝 Đóng Góp
+
+1. Tạo nhánh tính năng: `git checkout -b feature/your-feature`
+2. Commit thay đổi: `git commit -am 'Thêm tính năng mới'`
+3. Đẩy đến nhánh: `git push origin feature/your-feature`
+4. Gửi pull request
+
+## 📄 Giấy Phép
+
+Dự án này được cấp phép theo Giấy Phép MIT. Xem tệp LICENSE để biết chi tiết.
+
+---
+
+**Xây dựng bằng ❤️ sử dụng Laravel 11**
+
+Cập nhật lần cuối: 25 Tháng 12, 2025
